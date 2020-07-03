@@ -1,0 +1,8 @@
+{%extends "orders/user_auth.html"%}
+{%load crispy_forms_tags%}
+{%block content%}
+<div id="auth_content">
+<h1 id="auth_logout">You have been logged out!</h1>
+<a class="ml-2" href="{%url 'orders:login'%}">Log-in again</a>
+</div>
+{%endblock%}

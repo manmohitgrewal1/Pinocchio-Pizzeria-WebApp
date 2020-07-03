@@ -1,0 +1,147 @@
+{% extends 'orders/user_auth.html'%} {% block content%}
+
+<h1 class="heading"><span class="heading_span">Order</span> <span class="heading_span">Now</span></h1>
+<h1 class="heading_under">All the taste, not on your waist!</h1>
+{%if clicked_item == "Pasta" or clicked_item == "Salad" %}
+<div class="item_content">
+  <table class="table table-dark">
+    <thead>
+      <tr>
+        <th scope="col"></th>
+        <th scope="col">{{clicked_item}} Varients</th>
+        <th scope="col">Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      {%for key, value in menu.items%}
+      <tr>
+        <th scope="row">{{forloop.counter}}</th>
+        <td>{{key}}</td>
+        <td>${{value.0}}</td>
+
+      </tr>
+      {%endfor%}
+    </tbody>
+  </table>
+</div>
+
+{%else%}
+<div class="item_content">
+  <table class="table table-dark">
+    <thead>
+      <tr>
+        <th scope="col"></th>
+        <th scope="col">{{clicked_item}} Varients</th>
+        <th scope="col">Small</th>
+        <th scope="col">Large</th>
+      </tr>
+    </thead>
+    <tbody>
+      {%for key, value in menu.items%}
+      <tr>
+        <th scope="row">{{forloop.counter}}</th>
+        <td>{{key}}</td>
+        <td>${{value.0}}</td>
+        <td>${{value.1}}</td>
+      </tr>
+      {%endfor%}
+
+
+    </tbody>
+  </table>
+</div>
+{%endif%}
+{%if clicked_item == "Subs"%}
+<h4 id="sub_topping">Available add-on</h4>
+<div class="item_content">
+  <table class="table table-dark">
+    <thead>
+      <tr>
+        <th scope="col"></th>
+        <th scope="col">Add-ons</th>
+        <th scope="col">Large</th>
+        <th scope="col">Small</th>
+      </tr>
+    </thead>
+    <tbody>
+      {%for key1, value1 in subtopping.items%}
+      <tr>
+        <th scope="row">{{forloop.counter}}</th>
+        <td>{{key1}}</td>
+        <td>${{value1.0}}</td>
+        <td>${{value1.1}}</td>
+      </tr>
+      {%endfor%}
+    </tbody>
+  </table>
+</div>
+{%endif%}
+<div class="content_div">
+  <div class="list_of_items">
+    <h4 id="list_of_items">List of Items</h4>
+    <hr width="200px" style="border: 2px solid#decc85;" />
+    <form class="load_order" ,id="form1" , action="{% url 'orders:index'%}" method="post">
+      {%csrf_token%}
+      {%for key in list_item%}
+      <div class="custom-control custom-radio custom-control-inline">
+        <input class="custom-control-input" type="radio" name="choices" value="{{key}}" id="choice{{key}}" />
+        <label id="label" class="custom-control-label" for="choice{{key}}">{{key}} </label>
+      </div>
+      <br>
+      {%endfor%}
+      <input type="submit" , class="btn btn-danger" , id="submits_btn" ,value="Submit" />
+    </form>
+  </div>
+
+  <form action="{%url 'orders:cart'%}" , id="form" , onsubmit="return validation()" , method="POST">
+    {%csrf_token%}
+    <div class="abcd">
+      <h4 id="clicked_item_name" name="clicked_item_name" value="{{clicked_item}}">{{clicked_item}}</h4>
+      {%if size == 'Yes'%}
+      <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" name="size" id="large" class="custom-control-input" value="large">
+        <label class="custom-control-label" for="large">Large</label><br>
+      </div>
+      <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" name="size" class="custom-control-input" id="small" value="small">
+        <label class="custom-control-label" for="small">Small</label><br>
+      </div>
+
+      {%endif%}
+      {%if clicked_item_details%}
+      <hr width="200px" style="border: 2px solid#decc85;" />
+      <ul id="ulist" class="list_of_varients">
+        {%for varients, values in menu.items%}
+        <div class="custom-control custom-radio custom-control-inline">
+          {%if varients == 'Cheese' or varients == 'Special'%}
+          <input type="radio" class="custom-control-input" value='{{varients}} {{clicked_item}}'
+            onclick="hide_me(value)" name="selected_item" class="varient_selection" id="{{varients}}">
+          {%else%}
+          <input type="radio" class="custom-control-input" class="varient_selection"
+            value='{{varients}} {{clicked_item}}' onclick="clickfun(value)" name="selected_item" id="{{varients}}">
+          {%endif%}
+          <label class="custom-control-label varients" for="{{varients}}">{{varients}}</label><br>
+        </div>
+        {%endfor%}
+      </ul>
+      {%  if toppings%}
+      <hr width="500px" style="border: 2px solid#decc85;" />
+      <div class="topping_addon inactive">
+        <ul id="list_tag">
+          {%for topping in toppings%}
+          <div class="custom-control custom-radio custom-control-inline">
+            <input class="custom-control-input" type="checkbox" class="list_tag" value="{{topping}}"
+              name="selected_toppings" id="{{topping}}">
+            <label class="custom-control-label" for="{{topping}}">{{topping}}</label><br>
+          </div>
+          {%endfor%}
+      </div>
+      <hr width="200px" style="border: 2px solid#decc85;" />
+      {%endif%}
+      <input type="submit" class="btn btn-danger" value="Add to Cart">
+      {%endif%}
+    </div>
+</div>
+</form>
+</div>
+{%endblock%}

@@ -1,0 +1,5 @@
+Cheese	12.70	17.95
+1-topping	13.70	19.95
+2-toppings	15.20	21.95
+3-toppings	16.20	23.95
+Special	17.75	25.95

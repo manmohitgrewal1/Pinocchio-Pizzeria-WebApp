@@ -1,0 +1,254 @@
+#auth_header {
+  display: grid;
+  min-height: 50px;
+  grid-auto-flow: column;
+  grid-gap: 20px;
+  margin: 10px;
+
+  background-color: black;
+}
+
+#auth_logout{
+  background-color: white;
+}
+
+
+#left_side_header {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 15% 70%;
+}
+#left_side_header img {
+  height: 150%;
+  position: relative;
+  bottom: 10%;
+  padding: 50px;
+  width: auto;
+}
+#left_side_header h4 {
+  text-align: left;
+  justify-self: left;
+  align-self: center;
+  font-family: "Bowlby One SC", cursive;
+  color: rgba(240, 39, 39, 0.877);
+  font-size: 36px;
+  transform: translate(-11%, 13px);
+  position: relative;
+}
+#right_side_header {
+  text-align: right;
+  padding: 50px;
+}
+#right_side_header a {
+  padding: 5px;
+  color: rgba(240, 39, 39, 0.877);
+  font-weight: 600;
+  font-size: large;
+  font-family: "Merriweather", serif;
+}
+#auth_content{
+background-color: white;
+    /* display: flex; */
+    padding: 20px;
+    border: 2px solid black;
+    width: 600px;
+    height: 550px;
+    overflow: scroll;
+    position: relative;
+    border-radius: 20px;
+    transform: translate(123%, 32%);
+}
+#legend {
+  font-family: "Merriweather", serif;
+  font-size: x-large;
+  background-color: white;
+  text-align: center;
+  color: black;
+}
+
+.list_of_items {
+  position: relative;
+  transform: translate(-2%, 18%);
+}
+
+#sub_topping {
+  text-align: center;
+  color: white;
+  font-variant: all-petite-caps;
+}
+.abcd {
+  color: white;
+  position: relative;
+  transform: translate(52%, 21%);
+  width: 45%;
+  text-align: center;
+  font-size: large;
+}
+.item_content {
+  color: white;
+  font-size: large;
+  font-family: "Merriweather", serif;
+  font-weight: bold;
+  width: 65%;
+  position: relative;
+  transform: translate(27%, 9%);
+  margin-bottom: 100px;
+  border: 2px solid;
+  /* display: none; */
+
+}
+
+.btn-success {
+  position: relative;
+  color: #fff;
+  background-color: #28a745;
+  border-color: #28a745;
+  right: -87%;
+  transform: translate(0%, -76%);
+}
+
+#list_of_items {
+  color: white;
+  font-family: "Merriweather", serif;
+}
+.heading_span {
+  color: white;
+
+  font-family: "Monoton", cursive;
+}
+.heading {
+  text-align: center;
+}
+.heading_under {
+  text-align: center;
+  font-family: "Covered By Your Grace", cursive;
+  color: rgb(228, 216, 216);
+}
+.content_div {
+  margin-top: 50px;
+  display: grid;
+  text-align: center;
+  grid-template-columns: 50% 50%;
+}
+
+/* .item_content {
+  color: white;
+  font-size: large;
+  font-family: "Merriweather", serif;
+  font-weight: bold;
+} */
+
+#label,
+.form {
+  text-align: left;
+  margin: 5px;
+  font-size: large;
+  font-weight: 200;
+  font-weight: bold;
+  color: white;
+  padding: 5px;
+  font-family: "Merriweather", serif;
+}
+#clicked_item {
+  font-family: "Merriweather", serif;
+  font-size: large;
+  margin: 10px;
+  list-style: none;
+}
+.item_list {
+  list-style: none;
+  cursor: pointer;
+}
+.inactive {
+  visibility: hidden;
+}
+.topping_addon {
+  margin-top: 60px;
+  margin-bottom: 20px;
+  background-color: blanchedalmond;
+  font-size: medium;
+  font-family: "Merriweather", serif;
+  text-align: left;
+  border-radius: 10px;
+  margin-right: 20px;
+  height: auto;
+  width: 90%;
+
+}
+#list_tag {
+  -moz-column-count: 4;
+  -moz-column-gap: 20px;
+  -webkit-column-count: 4;
+  -webkit-column-gap: 20px;
+  column-count: 3;
+
+  column-gap: 20px;
+}
+
+.cart_box {
+  margin: 1%;
+}
+#cart_header_belt {
+  width: auto;
+  border-radius: 10px;
+  height: 100px;
+  background-color: black;
+}
+#cart_header_belt h1 {
+  text-align: center;
+  text-transform: capitalize;
+  font-family: "Courier New", Courier, monospace;
+  padding-top: 25px;
+  font-weight: bold;
+  color: white;
+}
+#cart_order_table {
+  font-family: "Courier New", Courier, monospace;
+  font-size: large;
+  text-transform: capitalize;
+  margin: 5%;
+  color: white;
+}
+#total {
+  font-size: x-large;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+*  {
+  background-color: black;
+}
+
+.alert {
+  position: relative;
+  width: 40%;
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  text-align: center;
+  left: 30%;
+}
+.alert-success {
+  color: #155724;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+  font-weight: bolder;
+  font-family: "Merriweather", serif;
+}
+#remove_btn {
+  
+  width: 50px;
+  padding-right: 41px;
+}
+#form_1{
+  background-color: white;
+  
+}
+#fd_set{
+  color: red;
+  font-size: medium;
+  font-weight: bold;
+  background-color: white;
+}
+#small{
+  background-color: white;
+}

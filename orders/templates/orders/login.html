@@ -1,0 +1,15 @@
+{%extends "orders/user_auth.html"%}
+{%load crispy_forms_tags%}
+{%block content%}
+<div id="auth_content">
+<form method="post">
+    {%csrf_token%}
+    <fieldset id="fd_set", class="form-group">
+        <legend id="legend" class="border-bottom md-4">LOG-IN</legend>
+        {{form| crispy}}
+    </fieldset>
+    <input type="submit", class="btn btn-outline-info", value="Submit">
+</form>
+<small id="small" ,class="text-muted small">Need an account? <a class="ml-2" href="{%url 'orders:register'%}">Register</a></small>
+</div>
+{%endblock%}

@@ -1,0 +1,44 @@
+.heading {
+  color: green;
+  text-align: center;
+}
+.content_div {
+  margin-top: 100px;
+  display: grid;
+  text-align: center;
+  grid-template-columns: 30% 30% 40%;
+}
+
+#label,
+.form {
+  text-align: left;
+  margin: 5px;
+  /* margin-left: 50px; */
+  font-size: large;
+  font-weight: 200;
+  color: black;
+  font-family: "Courier New", Courier, monospace;
+}
+#clicked_item {
+  font-family: "Courier New", Courier, monospace;
+  font-size: large;
+  margin: 10px;
+  list-style: none;
+}
+.item_list {
+  list-style: none;
+  cursor: pointer;
+}
+.inactive {
+  visibility: hidden;
+}
+.topping_addon {
+  background-color: blanchedalmond;
+  font-size: large;
+  font-family: "Courier New", Courier, monospace;
+  text-align: left;
+  display: grid;
+  /* grid-template-columns: 50% 50%; */
+  height: 300px;
+  overflow: scroll;
+}

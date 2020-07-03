@@ -1,0 +1,63 @@
+{%extends "orders/user_auth.html"%}
+{%block content%}
+<form action="{%url 'orders:cart'%}" method="post">
+    {%csrf_token%}
+    <div class="cart_box">
+        <div id="cart_header_belt">
+            <h1>{{user}}<span>'s</span> Cart</h1>
+            <hr width="200px" style="border: 2px solid#decc85;" />
+        </div>
+        <div id="cart_order_table">
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col"></th>
+                        <th scope="col">PRODUCT</th>
+                        <th scope="col">SIZE</th>
+                        <th scope="col">PRICE</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                {%for item, order in order_package.items%}
+                <tbody>
+                    <tr>
+                        <th scope="row">{{item}}</th>
+                        <th>{{order.0}} <br>
+                            <SMAll>{{order.1}}
+                                {%if order|length == 5%}
+                                w/
+                                {%for run in order.2%}
+                                <li>{{run}}</li>
+                                {%endfor%}
+                            </SMAll></th>
+                        <th>{{order.3}}</th>
+                        <th>${{order.4}}</th>
+                        <th id="remove_btn"><button type="submit" , name="remove" , class="btn btn-danger"
+                                value="{{item}}">Remove</button></th>
+                        {%else%}
+                        </SMAll></th>
+                        <th>{{order.2}}</th>
+                        <th>${{order.3}}</th>
+                        <th id="remove_btn"><button type="submit" , name="remove" , class="btn btn-danger"
+                                value="{{item}}">Remove</button></th>
+                        {%endif%}
+                    </tr>
+                </tbody>
+                {%endfor%}
+                <tbody>
+                    <tr>
+                        <th scope="row"></th>
+                        <th id="total">Total </th>
+                        <th></th>
+                        <th id="total">${{total}}
+                        </th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</form>
+<h4 class="show_status inactive" , style="color: aliceblue; text-align: center;">Order Status: <span>{{status}}</span>
+</h4>
+<input type="button" , onclick="place()" , class="btn btn-success" value="Place Order">
+{%endblock%}
